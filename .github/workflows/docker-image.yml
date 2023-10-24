@@ -53,3 +53,7 @@ jobs:
           docker build -t lxa3002/fortune:${{ github.sha }} .
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
+      - name: Install Cosign
+        uses: sigstore/cosign-installer@v3.1.1
+        with:
+          cosign-release: 'v2.2.0' 
