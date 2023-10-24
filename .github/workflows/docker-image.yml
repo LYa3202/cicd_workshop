@@ -71,3 +71,11 @@ jobs:
           context: .
           push: true
           tags: lxa3002/fortune:${{ github.sha }}
+      - name: Sign image
+        run: |
+          echo "$PRIVATE_KEY" > cosign.key
+          cosign sign --verbose --yes --key cosign.key "${TAGS}@${DIGEST}"
+        env:
+          TAGS: "lxa3002/fortune"
+          PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
+          DIGEST: ${{ steps.build-push.outputs.digest }}
