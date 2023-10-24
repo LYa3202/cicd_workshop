@@ -41,3 +41,10 @@ jobs:
         env:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
           SLACK_MESSAGE: 'Failed trivy scan'
+      - name: Upload output.txt
+        if: always() && (steps.scan.outcome == 'failure')
+        uses: adrey/slack-file-upload-action@master
+        with:
+          token: ${{ secrets.SLACK_TOKEN }}
+          path: output.txt
+          channel: test-1023
