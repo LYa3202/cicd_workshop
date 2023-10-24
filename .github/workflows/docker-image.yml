@@ -33,7 +33,7 @@ jobs:
           scan-ref: '.'
           format: 'table'
           exit-code: '1'
-          severity: ${{ steps.get-severity.outputs.severity }}
+          severity: env.SEVERITY
           output: 'output.txt'
       - name: Failed Scan
         if: always() &&  (steps.scan.outcome == 'failure')
