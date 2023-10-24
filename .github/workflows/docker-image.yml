@@ -80,3 +80,13 @@ jobs:
           PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
           COSIGN_PASSWORD: ${{ secrets.COSIGN_PASSWORD }}
           DIGEST: ${{ steps.build-push.outputs.digest }}
+      - name: Send Success
+        uses: rtCamp/action-slack-notify@v2
+        env:
+          SLACK_MESSAGE: |
+            *Name*: Liu YuXuan
+            *MatriculationNumber*: A0285947H
+            *Email*: lxa3002@gmail.com
+            *Repository* :${{ github.server_url }}/${{ github.repository }}
+            *DockerHubURL*: https://hub.docker.com/repository/docker/lxa3002/fortune/general
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_TEST }}
