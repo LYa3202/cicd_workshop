@@ -21,3 +21,7 @@ jobs:
           else
             echo "severity=HIGH" >> "$GITHUB_OUTPUT"
           fi
+      - name: checkings
+        env:
+          severity: ${{ steps.get-severity.outputs.severity }}
+        run: echo '$severity'
