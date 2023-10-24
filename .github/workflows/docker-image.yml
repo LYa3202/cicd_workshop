@@ -39,7 +39,7 @@ jobs:
         if: always() &&  (steps.scan.outcome == 'failure')
         uses: rtCamp/action-slack-notify@v2
         env:
-          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_TEST }}
           SLACK_MESSAGE: 'Failed trivy scan'
       - name: Upload output.txt
         if: always() && (steps.scan.outcome == 'failure')
