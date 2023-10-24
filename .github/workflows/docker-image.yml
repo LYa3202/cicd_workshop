@@ -11,3 +11,13 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
+      - name: Read High or Critical
+        id: get-severity
+        env:
+          commitMsg: ${{ github.event.head_commit.message }}
+        run: |
+          if [[ $commitMsg == *"CRITICAL"* ]]; then
+            echo "severity=CRITICAL" >> "$GITHUB_OUTPUT"
+          else
+            echo "severity=HIGH" >> "$GITHUB_OUTPUT"
+          fi
