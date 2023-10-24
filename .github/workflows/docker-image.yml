@@ -51,3 +51,5 @@ jobs:
       - name: Build image
         run: |
           docker build -t lxa3002/fortune:${{ github.sha }} .
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
