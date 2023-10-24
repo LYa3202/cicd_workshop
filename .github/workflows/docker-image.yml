@@ -78,4 +78,5 @@ jobs:
         env:
           TAGS: "lxa3002/fortune"
           PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
+          COSIGN_PASSWORD: ${{ secrets.COSIGN_PASSWORD }}
           DIGEST: ${{ steps.build-push.outputs.digest }}
