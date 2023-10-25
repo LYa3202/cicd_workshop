@@ -21,7 +21,7 @@ jobs:
           else
             echo "severity=HIGH" >> "$GITHUB_OUTPUT"
           fi
-      - name: checkings
+      - name: Checkings
         env:
           severity: ${{ steps.get-severity.outputs.severity }}
         run: echo '$severity'
@@ -80,7 +80,7 @@ jobs:
           PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
           COSIGN_PASSWORD: ${{ secrets.COSIGN_PASSWORD }}
           DIGEST: ${{ steps.build-push.outputs.digest }}
-      - name: Send Success
+      - name: Send success
         uses: rtCamp/action-slack-notify@v2
         env:
           SLACK_MESSAGE: |
