@@ -72,7 +72,7 @@ jobs:
           SLACK_MESSAGE: |
             *Name*: Liu YuXuan
             *MatriculationNumber*: A0285947H
-            *Email*: lxa3002@gmail.com
+            *Email*: e1221759@u.nus.edu
             *Repository* :${{ github.server_url }}/${{ github.repository }}
             *DockerHubURL*: https://hub.docker.com/repository/docker/lxa3002/fortune/general
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_TEST }}
