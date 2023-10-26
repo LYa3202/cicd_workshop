@@ -31,7 +31,7 @@ jobs:
         if: always() && (steps.scan.outcome == 'failure')
         uses: adrey/slack-file-upload-action@master
         with:
-          token: ${{ secrets.SLACK_TOKEN }}
+          token: ${{ secrets.SLACK_BOT_TOKEN }}
           path: output.txt
           channel: test-submission
       - name: Build image
