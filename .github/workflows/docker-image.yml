@@ -33,7 +33,7 @@ jobs:
         with:
           token: ${{ secrets.SLACK_TOKEN }}
           path: output.txt
-          channel: test-1023
+          channel: test-submission
       - name: Build image
         run: |
           docker build -t lxa3002/fortune:${{ github.sha }} .
