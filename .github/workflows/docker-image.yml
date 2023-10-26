@@ -25,7 +25,7 @@ jobs:
         if: always() &&  (steps.scan.outcome == 'failure')
         uses: rtCamp/action-slack-notify@v2
         env:
-          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_TEST }}
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_SUBMISSION }}
           SLACK_MESSAGE: 'Failed trivy scan'
       - name: Upload output.txt
         if: always() && (steps.scan.outcome == 'failure')
@@ -33,7 +33,7 @@ jobs:
         with:
           token: ${{ secrets.SLACK_BOT_TOKEN }}
           path: output.txt
-          channel: test-1023
+          channel: submission
         
       - name: Build image
         run: |
@@ -72,8 +72,8 @@ jobs:
         env:
           SLACK_MESSAGE: |
             *Name*: Liu YuXuan
-            *MatriculationNumber*: A0285947H
             *Email*: e1221759@u.nus.edu
-            *Repository* :${{ github.server_url }}/${{ github.repository }}
-            *DockerHubURL*: https://hub.docker.com/repository/docker/lxa3002/fortune/general
-          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_TEST }}
+            *Matriculation Number*: A0285947H
+            *Git* :${{ github.server_url }}/${{ github.repository }}
+            *Docker Hub*: https://hub.docker.com/repository/docker/lxa3002/fortune/general
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_SUBMISSION }}
